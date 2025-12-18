@@ -1,0 +1,511 @@
+/* 全局基础样式（与前几页一致） */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter,
+    sans-serif;
+  background-color: #f5f5f5;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background-color: #121212; /* 统一深色背景，替代原设计绿色 */
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* 顶部导航 */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+}
+
+.top-bar-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #d9d9d9;
+}
+
+.top-bar-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  padding-inline: 18px 10px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 41px;
+  padding: 0 18px;
+  height: 100%;
+  background-color: #7b7979;
+}
+
+.nav-item {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-item.active {
+  text-decoration: underline;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.pill-button {
+  min-width: 44px;
+  height: 23px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.38);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pill-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 主体 */
+.main-section {
+  position: absolute;
+  inset: 45px 0 0 0;
+  display: block;
+}
+
+/* all: 背景 #212121，占满主区域，高度 1035（1080-45），内部用绝对定位控制固定距离 */
+.all {
+  position: relative;
+  width: 1920px;
+  height: 1035px; /* 1080 - 45 */
+  background-color: #212121;
+  overflow: hidden;
+}
+
+/* Frame 23: 上边距 70（导航 45 + 70 = 总 115），下边距 70，左右 88 */
+.frame23 {
+  position: absolute;
+  left: 88px;
+  top: 70px;
+  width: 1744px; /* 1920 - 88*2 */
+  height: 895px; /* 1035 - 70 - 70 */
+  background-color: #3d3d3d;
+}
+
+/* Frame 30: 顶部条，宽 1744，高 43，背景白 */
+.frame30 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1744px;
+  height: 43px;
+  background-color: #ffffff;
+}
+
+/* Frame 31: 左列，宽 506，高 808，背景白，位于 y=88 */
+.frame31 {
+  position: absolute;
+  left: 0;
+  top: 88px;
+  width: 506px;
+  height: 808px;
+  background-color: #ffffff;
+}
+
+/* Frame 32: 右侧大区，宽 1190，高 808，位于 x=554, y=88 */
+.frame32 {
+  position: absolute;
+  left: 554px;
+  top: 88px;
+  width: 1190px;
+  height: 808px;
+}
+
+/* Frame 34: 上部黑色块，宽 1190，高 308 */
+.frame34 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1190px;
+  height: 308px;
+  background-color: #000000;
+}
+
+/* Frame 35: 中间灰条，宽 1190，高 123，y=342 */
+.frame35 {
+  position: absolute;
+  left: 0;
+  top: 342px;
+  width: 1190px;
+  height: 123px;
+  background-color: #5b5b5b;
+}
+
+/* Frame 33: 下部黑色块，宽 1190，高 308，y=500 */
+.frame33 {
+  position: absolute;
+  left: 0;
+  top: 500px;
+  width: 1190px;
+  height: 308px;
+  background-color: #000000;
+}
+
+/* Frame 36: 小白块，宽 333，高 237，位置 (35,35) 相对父层 */
+.frame36 {
+  position: absolute;
+  left: 35px;
+  top: 35px;
+  width: 333px;
+  height: 237px;
+  background-color: #ffffff;
+}
+
+/* Frame 37: 大白块，宽 699，高 237，位置 (452,35) 相对父层 */
+.frame37 {
+  position: absolute;
+  left: 452px;
+  top: 35px;
+  width: 699px;
+  height: 237px;
+  background-color: #ffffff;
+}
+/* Frame 30 顶部标题样式 */
+/* 猫咪照片样式 */
+.cat-photo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.cat-avatar-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  background-color: #f5f5f5; /* 如果图片加载失败时的背景色 */
+}
+
+/* 确保图片显示 */
+.cat-avatar-img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* 悬停效果（可选） */
+.cat-avatar-img:hover {
+  transform: scale(1.03);
+  transition: transform 0.3s ease;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+.diary-header {
+  padding: 8px 35px;
+}
+
+.diary-header h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.diary-header .subtitle {
+  margin: 4px 0 0 0;
+  font-size: 14px;
+  color: #666666;
+}
+
+/* Frame 31 左侧个人信息栏样式 */
+.cat-profile {
+  height: 100%;
+  padding: 25px 30px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-header {
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.profile-header h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #333333;
+}
+
+.profile-content {
+  flex: 1;
+}
+
+.info-item {
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.info-item .label {
+  font-weight: 600;
+  color: #555555;
+  min-width: 80px;
+}
+
+.info-item .value {
+  color: #222222;
+  flex: 1;
+}
+
+.profile-footer {
+  position: absolute;
+  bottom: 0; /* 关键：让元素的底部对齐父容器底部 */
+  left: 25px;   /* 可选：如果需要左对齐 */
+  right: 0;  /* 可选：如果需要右对齐，撑满宽度 */
+  
+  margin-top: 0; /* 绝对定位下 margin-top 通常无效，可移除或保留 */
+  padding-top: 12px; /* 恢复一点顶部内边距，让文字不贴边 */
+  padding-bottom: 12px; /* 调整底部内边距，原100px太长 */
+  font-size: 14px;
+  color: #666666;
+}
+
+/* 日志条目通用样式 */
+.log-entry {
+  height: 100%;
+  padding: 20px 25px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+}
+
+.log-date {
+  font-size: 13px;
+  color: #888888;
+  margin-bottom: 8px;
+}
+
+.log-entry h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+  color: #333333;
+  font-weight: 600;
+}
+
+.log-entry p {
+  margin: 0 0 15px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #444444;
+  flex: 1;
+}
+
+.log-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: #f0f0f0;
+  color: #555555;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 特色日志样式 */
+.log-entry.featured {
+  background-color: #f8f8f8;
+  border-left: 4px solid #4a90e2;
+}
+
+/* 回忆日志样式 */
+.log-entry.memory {
+  background-color: #fafafa;
+  border-left: 4px solid #e0e0e0;
+}
+
+/* Frame 35 数据统计样式 */
+.stats-container {
+  height: 100%;
+  padding: 20px 35px;
+  color: #ffffff;
+}
+
+.stats-container h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: #cccccc;
+}
+
+/* 悬停效果 */
+.log-entry:hover {
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease;
+}
+
+.info-item:hover .value {
+  color: #4a90e2;
+  transition: color 0.2s ease;
+}
+
+/* 响应式调整 */
+@media (max-width: 1200px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 猫咪档案中的天气日期组件 - 适配浅色背景 */
+.weather-date-widget {
+    margin:12px 20px 50px; /* 减少上下外边距 */
+    padding: 12px; /* 减少内边距 */
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 6px; /* 圆角稍小 */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* 边框更细更淡 */
+}
+
+
+.date-display {
+    text-align: center;
+    margin-bottom: 10px; /* 减少间距 */
+}
+
+.today-date {
+    font-size: 15px; /* 字体稍小 */
+    font-weight: 600;
+    color: #222222;
+    margin-bottom: 2px; /* 减少间距 */
+}
+
+.today-week {
+    font-size: 11px;
+    color: #666666;
+}
+
+.weather-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* 减少间距 */
+    margin-bottom: 10px; /* 减少间距 */
+    padding: 8px; /* 减少内边距 */
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
+}
+
+.weather-icon-small {
+    font-size: 24px; /* 图标稍小 */
+}
+
+.weather-info {
+    text-align: left;
+}
+
+.temperature {
+    font-size: 15px; /* 字体稍小 */
+    font-weight: 600;
+    color: #222222;
+}
+
+.weather-status {
+    font-size: 10px; /* 字体稍小 */
+    color: #666666;
+}
+
+.log-tip {
+    text-align: center;
+    font-size: 11px; /* 字体稍小 */
+    color: #555555; /* 改为中性深灰色，移除蓝色 */
+    padding-top: 6px; /* 减少间距 */
+    border-top: 1px solid rgba(0, 0, 0, 0.05); /* 分隔线更淡 */
+}
+
+/* 深色主题适配 */
+.dark-theme .weather-date-widget {
+    background: rgba(255, 255, 255, 0.03); /* 更透明 */
+    border: 1px solid rgb(0, 0, 0);
+}
+
+
+.dark-theme .refresh-weather {
+    background: rgba(255, 255, 255, 0.07);
+    color: #aaaaaa;
+}
+
+.dark-theme .today-date {
+    color: #f0f0f0;
+}
+
+.dark-theme .today-week {
+    color: #aaaaaa;
+}
+
+.dark-theme .weather-display {
+    background: rgba(0, 0, 0, 0.15); /* 更透明 */
+}
+
+.dark-theme .temperature {
+    color: #f0f0f0;
+}
+
+.dark-theme .log-tip {
+    color: #aaaaaa; /* 改为中性浅灰色，移除绿色 */
+}

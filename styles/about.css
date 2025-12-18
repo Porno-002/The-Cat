@@ -1,0 +1,211 @@
+/* future.css - 未来规划页面样式 */
+
+/* ==================== 全局基础样式（与diary.css一致） ==================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter,
+    sans-serif;
+  background-color: #f5f5f5;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background-color: #121212; /* 统一深色背景 */
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ==================== 顶部导航（与diary.css完全一致） ==================== */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+}
+
+.top-bar-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #d9d9d9;
+}
+
+.top-bar-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  padding-inline: 18px 10px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 41px;
+  padding: 0 18px;
+  height: 100%;
+  background-color: #7b7979;
+}
+
+.nav-item {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-item.active {
+  text-decoration: underline;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.pill-button {
+  min-width: 44px;
+  height: 23px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.38);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pill-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ==================== 主体部分 ==================== */
+
+.about-content {
+    padding: 50px 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: 'Microsoft YaHei', 'Segoe UI', sans-serif;
+    color: #333333;
+}
+
+.about-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #dddddd; /* 纯黑标题 */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #666666; /* 中灰分隔线 */
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #969696; /* 深灰正文 */
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.about-section strong {
+    color: #ffffff; /* 纯黑强调 */
+    font-weight: 700;
+}
+
+/* 愿景部分 - 黑白灰卡片 */
+.vision-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.vision-item {
+    background: #c7c7c7; /* 浅灰卡片（原来是白色） */
+    padding: 25px;
+    border-radius: 6px;
+    border-left: 4px solid #888888; /* 中灰边框 */
+    border: 1px solid #dddddd; /* 浅灰边框 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* 极浅阴影 */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vision-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    background: #f0f0f0; /* 悬停时略深 */
+    border-left-color: #ffee00; /* 悬停时边框加深 */
+}
+
+.vision-item h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: #222222; /* 纯黑小标题 */
+    margin-bottom: 15px;
+    line-height: 1.4;
+}
+
+.vision-item p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #555555; /* 中灰正文 */
+    margin-bottom: 0;
+}
+
+.vision-call {
+    font-size: 17px;
+    font-weight: 600;
+    color: #333333;
+    text-align: center;
+    padding: 30px;
+    background: #f8f8f8; /* 浅灰背景 */
+    border-radius: 8px;
+    margin-top: 40px;
+    border: 1px solid #e0e0e0;
+    line-height: 1.6;
+}
+.main-photo {
+  position: absolute;
+  width: 1980px;
+  height: 1080px;
+  /* 左右居中：left: 50% + 负margin（自身宽度的一半） */
+  left: 50%;
+  transform: translateX(-50%); /* 横向居中修正 */
+  top: 45px; /* 顶部距离保持不变（导航栏高度） */
+}
+
+.main-background {
+  position: absolute;
+  width: 100%; /* 继承父元素 .main-photo 的宽度（1440px） */
+  height: 100%; /* 继承父元素 .main-photo 的高度（810px） */
+  left: 0;
+  top: 0;
+  opacity: 0.35;
+}

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+  <head>
+    <meta charset="UTF-8" />
+    <title>养猫日志</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/diary.css" />
+    <script src="../scripts/help&join.js" defer></script>
+    <script src="../scripts/weather.js" defer></script>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- 顶部导航，与其它页面一致 -->
+      <header class="top-bar">
+        <div class="top-bar-bg"></div>
+        <div class="top-bar-content">
+          <nav class="main-nav">
+            <a href="./homepage.html" class="nav-item active">首页</a>
+            <a href="./knowledge.html" class="nav-item">猫咪科普</a>
+            <a href="./behavior.html" class="nav-item">行为指南</a>
+            <a href="./diary.html" class="nav-item">养猫日志</a>
+            <a href="./gallery.html" class="nav-item">猫咪美图</a>
+            <a href="./rescue.html" class="nav-item">救助中心</a>
+            <a href="./future.html" class="nav-item">未来规划</a>
+            <a href="./suggestion.html" class="nav-item">反馈建议</a>
+            <a href="./about.html" class="nav-item">关于网站</a>
+          </nav>
+          <div class="top-actions">
+            <button class="pill-button">帮助</button>
+            <button class="pill-button">登录</button>
+          </div>
+        </div>
+      </header>
+
+      <!-- 主体内容，按 Figma 布局 -->
+      <main class="main-section">
+        <div class="all">
+          <div class="frame23">
+            <!-- Frame 30: 顶部标题栏 -->
+            <div class="frame30">
+              <div class="diary-header">
+                <h1>养猫日志 | 猫咪成长记录</h1>
+                <p class="subtitle">记录每一天的温暖瞬间</p>
+              </div>
+            </div>
+
+            <!-- Frame 31: 左侧个人信息栏 -->
+            <!-- 猫咪档案栏 -->
+            <div class="frame31">
+              <div class="cat-profile">
+                <div class="profile-header">
+                  <h2>猫咪档案</h2>
+                </div>
+                <div class="profile-content">
+                  <!-- 固定照片区域 -->
+                  <div class="cat-photo">
+                    <img src="../pictures/xercat/00.jpg" alt="小狸的照片" class="cat-avatar-img">
+                  </div>
+                  <div class="info-item">
+                    <span class="label">名字：</span>
+                    <span class="value">小狸</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">品种：</span>
+                    <span class="value">狸花猫</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">年龄：</span>
+                    <span class="value">未知</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">性别：</span>
+                    <span class="value">公（已绝育）</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">领养日期：</span>
+                    <span class="value">2025.11.12</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">性格：</span>
+                    <span class="value">？</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">最爱食物：</span>
+                    <span class="value">没有特别偏好</span>
+                  </div>
+                  <div class="info-item">
+                    <span class="label">健康状况：</span>
+                    <span class="value">良好</span>
+                  </div>
+                </div>
+                <!-- 天气和日期显示 -->
+                <div class="weather-date-widget">
+
+                  <div class="date-display">
+                    <div class="today-date" id="diaryDate">--年--月--日</div>
+                    <div class="today-week" id="diaryWeek">星期-</div>
+                  </div>
+
+                  <div class="weather-display">
+                    <div class="weather-icon-small" id="diaryWeatherIcon">🌤️</div>
+                    <div class="weather-info">
+                      <div class="temperature" id="diaryTemperature">--°C</div>
+                      <div class="weather-status" id="diaryWeatherStatus">获取中...</div>
+                    </div>
+                  </div>
+
+                  <div class="log-tip">
+                    <span id="diaryLogTip">记录今日猫咪状态</span>
+                  </div>
+                </div>
+                <!-- 体检时间记录 -->
+                <div class="profile-footer">
+                  <p>最近体检：2025.11.14<br>下次疫苗：2026.01.20</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Frame 32: 右侧日志区 -->
+            <div class="frame32">
+              <!-- Frame 34: 上部黑色块 - 最近日志 -->
+              <div class="frame34">
+                <div class="frame36">
+                  <div class="log-entry recent">
+                    <div class="log-date">2025.11.01 周六 ☀</div>
+                    <h3>意外的相遇</h3>
+                    <p>学校门口有人扔了一只猫，关在笼子里面，还放了食物和宠物用品，打了袋子上宠物店的电话号码，说捡到的人放在店里寄养了两天刚带走，但现在又扔在了校门口...</p>
+                    <div class="log-tags">
+                      <span class="tag">人类</span>
+                      <span class="tag">流浪猫问题</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="frame37">
+                  <div class="log-entry featured">
+                    <div class="log-date">2025.11.14 周五 🌤</div>
+                    <h3>第一次一起睡觉</h3>
+                    <p>
+                      好不容易处理好事情，终于把小猫接回家了！这猫居然一点也不认生，只是刚来的时候对环境不太熟悉一直尝试探索，有点担心他会想要跑走......不过值得庆幸的是，他似乎并没有这个想法，并且才来第一天就钻被窝想要和我一起睡了...!<br>
+                      不过，其实我有点嫌弃
+                    </p>
+                    <div class="log-tags">
+                      <span class="tag">第一次</span>
+                      <span class="tag">经验分享</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Frame 35: 中间灰条 - 数据统计 -->
+              <div class="frame35">
+                <div class="stats-container">
+                  <h2>本月数据统计</h2>
+                  <div class="stats-grid">
+                    <div class="stat-item">
+                      <div class="stat-number">14</div>
+                      <div class="stat-label">日志记录</div>
+                    </div>
+                    <div class="stat-item">
+                      <div class="stat-number">4.5kg</div>
+                      <div class="stat-label">当前体重</div>
+                    </div>
+                    <div class="stat-item">
+                      <div class="stat-number">32</div>
+                      <div class="stat-label">互动时长(小时)</div>
+                    </div>
+                    <div class="stat-item">
+                      <div class="stat-number">5</div>
+                      <div class="stat-label">新增玩具</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Frame 33: 下部黑色块 - 早期回忆 -->
+              <div class="frame33">
+                <div class="frame36">
+                  <div class="log-entry memory">
+                    <div class="log-date">2025.11.23 周日 🌧</div>
+                    <h3>小狸住院</h3>
+                    <p>终于确定了名字、就叫小狸了。之前的病还没治好，是被弃养之前的遗留，开销特别大，差点去了那家特别黑心的宠物店......</p>
+                    <div class="log-tags">
+                      <span class="tag">健康记录</span>
+                      <span class="tag">重要时刻</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="frame37">
+                  <div class="log-entry memory">
+                    <div class="log-date">2025.12.14 周日 ❀</div>
+                    <h3>同居的这段时间</h3>
+                    <p>从来没养过小猫，感觉他们的行为难以预测，虽然这段时间并不长，但也了解和学习到了很多；可惜我没有办法一直养这只小猫，真希望能早点找到一个合适的领养人，他一直在被抛弃...</p>
+                    <div class="log-tags">
+                      <span class="tag">成长记录</span>
+                      <span class="tag">回忆</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+  </body>
+
+</html>

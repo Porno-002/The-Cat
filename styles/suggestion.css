@@ -1,0 +1,414 @@
+/* ==================== 全局基础样式（与diary.css一致） ==================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter,
+    sans-serif;
+  background-color: #f5f5f5;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background-color: #121212;
+  /* 统一深色背景 */
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ==================== 顶部导航（与diary.css完全一致） ==================== */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+}
+
+.top-bar-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #d9d9d9;
+}
+
+.top-bar-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  padding-inline: 18px 10px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 41px;
+  padding: 0 18px;
+  height: 100%;
+  background-color: #7b7979;
+}
+
+.nav-item {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-item.active {
+  text-decoration: underline;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.pill-button {
+  min-width: 44px;
+  height: 23px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.38);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pill-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ==================== 主体部分 ==================== */
+.main-section {
+  position: absolute;
+  inset: 45px 0 0 0;
+  display: block;
+}
+
+/* all: 背景 #212121，占满主区域，高度 1035（1080-45） */
+.all {
+  position: relative;
+  width: 1920px;
+  height: 1035px;
+  /* 1080 - 45 */
+  background-color: #212121;
+  overflow: hidden;
+}
+
+/* Frame 23:  */
+.frame23 {
+  width: 1744px;
+  /* 1920 - 88*2 */
+  height: 896px;
+  position: absolute;
+  left: 50%;
+  /* 改为居中 */
+  top: 50%;
+  transform: translate(-50%, -50%);
+  /* 居中定位 */
+  background: rgba(255, 255, 255, 0.31);
+}
+
+/* Frame 58: 顶部黑色区域 */
+.frame58 {
+  width: 1674px;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.92);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* Frame 59: 中间白色区域 */
+.frame59 {
+  width: 1674px;
+  height: 485px;
+  background: #FFFFFF;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* Frame 60: 底部卡片区域 */
+.frame60 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 14px;
+  width: 1674px;
+  height: 150px;
+  background: #FFFFFF;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+/* 单个卡片：Frame 61, 62, 63 */
+.frame61,
+.frame62,
+.frame63 {
+  width: 550px;
+  height: 150px;
+  background: linear-gradient(0deg, #000000, #000000), #000000;
+  flex: none;
+  flex-grow: 0;
+}
+
+.frame61 {
+  order: 0;
+}
+
+.frame62 {
+  order: 1;
+}
+
+.frame63 {
+  order: 2;
+}
+
+/* ==================== 主内容区域 ==================== */
+.all {
+  position: absolute;
+  top: 45px;
+  /* 导航栏高度 */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 45px);
+
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 115px 88px 70px;
+  gap: 10px;
+
+  background: #212121;
+}
+
+.frame23 {
+  width: 1744px;
+  /* 1920 - 88*2 */
+  height: 896px;
+  position: relative;
+}
+
+/* ==================== 左侧装饰元素 ==================== */
+.frame64 {
+  position: absolute;
+  width: 444px;
+  height: 480px;
+  left: -46px;
+  top: 6px;
+  background: #FFFFFF;
+  transform: rotate(84.11deg);
+}
+
+.frame66 {
+  position: absolute;
+  width: 430px;
+  height: 520px;
+  left: -125px;
+  top: 300px;
+  background: #A8A6A6;
+  transform: rotate(54.11deg);
+}
+
+.frame65 {
+  position: absolute;
+  width: 520px;
+  height: 480px;
+  left: 212px;
+  top: 160px;
+  background: #4E4E4E;
+  transform: rotate(106.99deg);
+}
+
+/* ==================== 右侧表单区域 ==================== */
+.frame67 {
+  position: absolute;
+  width: 749px;
+  height: 800px;
+  left: 995px;
+  top: 0;
+  background: #FFFFFF;
+}
+
+/* ==================== 表单内容样式 ==================== */
+/* 这些样式需要在.frame67内部使用 */
+.form-container {
+  padding: 60px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  color: #212121;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.form-subtitle {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  color: #666666;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 30px;
+}
+
+.form-label {
+  display: block;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  font-family: 'Inter';
+  font-size: 16px;
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 4px;
+  font-family: 'Inter';
+  font-size: 16px;
+  min-height: 150px;
+  resize: vertical;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 16px;
+  background: #212121;
+  border: none;
+  border-radius: 4px;
+  color: #FFFFFF;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 1919px) {
+  .page {
+    width: 100%;
+    max-width: 1920px;
+    height: auto;
+    min-height: 1080px;
+  }
+
+  .all {
+    padding: 115px 5% 70px;
+  }
+
+  .frame23 {
+    width: 100%;
+    height: auto;
+    min-height: 896px;
+  }
+
+  .main-nav {
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .nav-item {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .frame64,
+  .frame65,
+  .frame66 {
+    display: none;
+  }
+
+  .frame67 {
+    position: relative;
+    left: 0;
+    width: 100%;
+    max-width: 749px;
+    margin: 0 auto;
+    height: auto;
+    min-height: 877px;
+  }
+}
+
+@media (max-width: 768px) {
+  .all {
+    padding: 80px 20px 40px;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    height: auto;
+    padding: 10px;
+  }
+
+  .top-bar-content {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .top-actions {
+    position: relative;
+    right: auto;
+    top: auto;
+    margin-top: 10px;
+  }
+
+  .form-container {
+    padding: 30px 20px;
+  }
+}

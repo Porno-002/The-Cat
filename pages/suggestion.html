@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>反馈建议</title>
+        <link rel="stylesheet" href="../styles/suggestion.css">
+        <script src="../scripts/help&join.js" defer></script>
+        <script src="../scripts/suggestion.js" defer></script>
+    </head>
+
+    <body>
+        <div class="page">
+            <!-- 顶部导航，与diary.html完全一致 -->
+            <header class="top-bar">
+                <div class="top-bar-bg"></div>
+                <div class="top-bar-content">
+                    <nav class="main-nav">
+                        <a href="./homepage.html" class="nav-item active">首页</a>
+                        <a href="./knowledge.html" class="nav-item">猫咪科普</a>
+                        <a href="./behavior.html" class="nav-item">行为指南</a>
+                        <a href="./diary.html" class="nav-item">养猫日志</a>
+                        <a href="./gallery.html" class="nav-item">猫咪美图</a>
+                        <a href="./rescue.html" class="nav-item">救助中心</a>
+                        <a href="./future.html" class="nav-item">未来规划</a>
+                        <a href="./suggestion.html" class="nav-item">反馈建议</a>
+                        <a href="./about.html" class="nav-item">关于网站</a>
+                    </nav>
+                    <div class="top-actions">
+                        <button class="pill-button">帮助</button>
+                        <button class="pill-button">登录</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 主体内容 -->
+            <main class="main-section">
+                <div class="all">
+                    <div class="frame23">
+                        <!-- 左侧装饰元素 -->
+                        <div class="frame64"></div>
+                        <div class="frame66"></div>
+                        <div class="frame65"></div>
+
+                        <!-- 右侧表单区域 -->
+                        <div class="frame67">
+                            <div class="form-container">
+                                <h2 class="form-title">反馈建议</h2>
+                                <p class="form-subtitle">我们重视您的每一个意见和建议</p>
+
+                                <form id="feedbackForm">
+                                    <div class="form-group">
+                                        <label class="form-label" for="name">姓名</label>
+                                        <input type="text" id="name" class="form-input" placeholder="请输入您的姓名">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">邮箱</label>
+                                        <input type="email" id="email" class="form-input" placeholder="请输入您的邮箱地址">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="message">反馈内容</label>
+                                        <textarea id="message" class="form-textarea"
+                                            placeholder="请详细描述您的反馈内容..."></textarea>
+                                    </div>
+
+                                    <button type="button" class="submit-button" onclick="submitFeedback()">提交反馈</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <!-- 背景 -->
+            <!-- <div class="main-photo">
+                <img class="main-background" src="../pictures/背景1.png" alt="">
+            </div> -->
+        </div>
+
+    </body>
+
+</html>

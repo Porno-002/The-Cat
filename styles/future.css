@@ -1,0 +1,366 @@
+/* future.css - 未来规划页面样式 */
+
+/* ==================== 全局基础样式（与diary.css一致） ==================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter,
+    sans-serif;
+  background-color: #f5f5f5;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  background-color: #121212; /* 统一深色背景 */
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* ==================== 顶部导航（与diary.css完全一致） ==================== */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+}
+
+.top-bar-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #d9d9d9;
+}
+
+.top-bar-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  padding-inline: 18px 10px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 41px;
+  padding: 0 18px;
+  height: 100%;
+  background-color: #7b7979;
+}
+
+.nav-item {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-item.active {
+  text-decoration: underline;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.pill-button {
+  min-width: 44px;
+  height: 23px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.38);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pill-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* ==================== 主体部分 ==================== */
+.main-section {
+  position: absolute;
+  inset: 45px 0 0 0;
+  display: block;
+}
+
+/* all: 背景 #212121，占满主区域，高度 1035（1080-45） */
+.all {
+  position: relative;
+  width: 1920px;
+  height: 1035px; /* 1080 - 45 */
+  background-color: #212121;
+  overflow: hidden;
+}
+
+/* Frame 23: 上边距115，下边距70，左右88（根据你之前的CSS） */
+.frame23 {
+  position: absolute;
+  left: 88px;
+  top: 115px; /* 45 + 70 = 115 */
+  width: 1744px; /* 1920 - 88*2 */
+  height: 895px; /* 1035 - 115 - 70? 重新计算: 1035 - 115 = 920，但你的设计是895 */
+  /* 根据你的原始数据：height: 895px; 上边距115，下边距70 => 1035-115-70=850 不一致 */
+  /* 我采用你原始数据中的895px */
+  height: 895px;
+  background-color: rgba(255, 255, 255, 0.31);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 28px 33px;
+  gap: 27px;
+}
+
+/* Frame 58: 顶部黑色区域 */
+.frame58 {
+  width: 1674px;
+  height: 150px;
+  background: rgba(0, 0, 0, 0.92);
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+/* Frame 59: 中间白色区域 */
+.frame59 {
+  width: 1674px;
+  height: 485px;
+  background: #FFFFFF;
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+/* Frame 60: 底部卡片区域 */
+.frame60 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 14px;
+  width: 1674px;
+  height: 150px;
+  background: #FFFFFF;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+/* 单个卡片：Frame 61, 62, 63 */
+.frame61,
+.frame62,
+.frame63 {
+  width: 550px;
+  height: 150px;
+  background: linear-gradient(0deg, #000000, #000000), #000000;
+  flex: none;
+  flex-grow: 0;
+}
+
+.frame61 { order: 0; }
+.frame62 { order: 1; }
+.frame63 { order: 2; }
+
+/* ==================== 内容样式（可添加具体内容） ==================== */
+/* 未来规划卡片内部内容样式 */
+.future-card-content {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.future-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.future-card-desc {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* 中间白色区域内容 */
+.middle-content {
+  padding: 40px;
+  color: #333;
+  height: 100%;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #212121;
+  text-align: center;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  padding: 15px;
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+.timeline-date {
+  font-weight: 700;
+  color: #000;
+  min-width: 100px;
+  font-size: 18px;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-title {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 18px;
+}
+
+/* 顶部黑色区域内容 */
+.top-black-content {
+  padding: 40px;
+  color: white;
+  height: 100%;
+}
+
+.black-section-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #85e004; /* 主题绿色 */
+}
+
+.black-section-desc {
+  font-size: 18px;
+  line-height: 1.6;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* ==================== 悬停效果 ==================== */
+.frame61:hover,
+.frame62:hover,
+.frame63:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ==================== 响应式设计 ==================== */
+@media (max-width: 1919px) {
+  .page,
+  .all {
+    width: 100%;
+  }
+  
+  .frame23 {
+    width: calc(100% - 176px); /* 88px * 2 */
+    left: 88px;
+  }
+  
+  .frame58,
+  .frame59,
+  .frame60 {
+    width: 100%;
+  }
+  
+  .frame60 {
+    flex-wrap: wrap;
+    justify-content: center;
+    height: auto;
+    gap: 20px;
+    padding: 20px 0;
+  }
+  
+  .frame61,
+  .frame62,
+  .frame63 {
+    width: calc(33.333% - 10px);
+    min-width: 300px;
+    margin-bottom: 10px;
+  }
+  
+  .main-nav {
+    gap: 20px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .frame23 {
+    left: 20px;
+    width: calc(100% - 40px);
+    top: 80px;
+    padding: 20px;
+  }
+  
+  .frame61,
+  .frame62,
+  .frame63 {
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .frame60 {
+    flex-direction: column;
+  }
+  
+  .main-nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px;
+    gap: 15px;
+  }
+  
+  .nav-item {
+    font-size: 14px;
+  }
+  
+  .top-bar-content {
+    padding-inline: 10px;
+  }
+}

@@ -1,0 +1,247 @@
+/* 全局基础样式 */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Inter,
+    sans-serif;
+  /* background-color: #f5f5f5; */
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 页面画布，模拟 Figma 的 1920x1080 画布 */
+.page {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  /* background-color: #ffffff;  */
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+}
+
+/* 顶部导航区域 */
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45px;
+}
+
+/* 灰色背景条 (Rectangle 5) */
+.top-bar-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #d9d9d9;
+}
+
+/* 中间内容区域（导航 + 帮助/登录） */
+.top-bar-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 45px;
+  padding-inline: 18px 10px;
+}
+
+/* 深灰色导航背景 (guide frame) */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 41px;
+  padding: 0 18px;
+  height: 100%;
+  background-color: #7b7979;
+  border-radius: 0;
+}
+
+.nav-item {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-item.active {
+  text-decoration: underline;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.pill-button {
+  min-width: 44px;
+  height: 23px;
+  padding: 0 16px;
+  border-radius: 999px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.38);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.pill-button:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* 主体区域 */
+.main-section {
+  position: absolute;
+  inset: 45px 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 改成了下面的文字框 */
+.hero {
+  position: absolute;
+  width: 1440px;
+  height: 1080px;          /* 总高度1080px */
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 855px,     /* 上面855px透明 */
+    #ffffff 855px,         /* 从855px处开始白色 */
+    #ffffff 100%           /* 到100%结束 */
+  );
+  /* 移除padding-top，改用其他方式定位内容 */
+}
+/* main-photo 调整为相对于页面居中 */
+.main-photo {
+  position: absolute;
+  width: 1440px;
+  height: 850px;
+  /* 左右居中：left: 50% + 负margin（自身宽度的一半） */
+  left: 50%;
+  transform: translateX(-50%); /* 横向居中修正 */
+  top: 0px; /* 顶部距离保持不变（导航栏高度） */
+}
+
+.main-background {
+  position: absolute;
+  width: 100%; /* 继承父元素 .main-photo 的宽度（1440px） */
+  height: 100%; /* 继承父元素 .main-photo 的高度（810px） */
+  left: 0;
+  top: 0;
+  background-size: cover; /* 可选：让图片覆盖整个区域（避免拉伸变形） */
+}
+
+
+/* 欢迎标题区域 (intro-text / text1 / Welcome!) */
+.hero-text {
+  position: absolute;
+  left: 240px;
+  bottom: 100px; 
+}
+
+.hero-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: #000000;
+}
+
+/* 右侧按钮组 (Frame 20/17/18/19) */
+.hero-actions {
+  position: absolute;
+  right: 240px;
+  bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero-link {
+  width: 191px;
+  height: 40px;
+  border-radius: 999px;
+  border: none;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  font-size: 18px;
+  font-weight: 600;
+  color: #000000;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  /* 新增：使<a>标签表现像按钮 */
+  display: flex; /* 或 inline-flex */
+  align-items: center; /* 垂直居中 */
+  justify-content: center; /* 水平居中 */
+  text-decoration: none; /* 去掉下划线 */
+}
+
+.hero-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.hero-link:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18) inset;
+}
+/* 最底层背景 */
+/* Frame 68 相关样式 */
+
+.frame68 {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  left: 0px;
+  top: 0px;
+  z-index: -1 ;
+}
+
+.rectangle1 {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  left: 0px;
+  top: 0px;
+  background: #000000;
+  z-index: 1; /* 底层黑色背景 */
+}
+
+.background1-2 {
+  position: absolute;
+  width: 1920px;
+  height: 1080px;
+  left: 0px;
+  top: 0px;
+  background: url(../pictures/背景1.png);
+  opacity: 0.2;
+  z-index: 2; /* 覆盖在黑色背景上 */
+}
+
+.background1-1 {
+  position: absolute;
+  width: 1271px;
+  height: 885px;
+  left: 649px;
+  top: 195px;
+  background: url(../pictures/背景1.png);
+  opacity: 0.2;
+  z-index: 2; /* 最上层，覆盖前两者 */
+}
+
