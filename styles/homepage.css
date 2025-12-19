@@ -244,4 +244,138 @@ body {
   opacity: 0.2;
   z-index: 2; /* 最上层，覆盖前两者 */
 }
+/* ==================== 手机端响应式适配 (合并版) ==================== */
+@media screen and (max-width: 768px) {
+    /* 1. 核心：解除固定画布，允许内容流动和滚动 */
+    .page {
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        min-height: 100vh;
+        overflow: visible !important;
+        box-shadow: none;
+    }
 
+    /* 2. 调整body布局，改为正常文档流 */
+    body {
+        display: block !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        min-height: 100vh;
+        padding: 0;
+        background-color: #000000; /* 与底层背景一致 */
+    }
+
+    /* ===== 3. 修复导航栏 ===== */
+    /* 3.1 释放导航栏的绝对定位和固定宽度限制 */
+    .top-bar {
+        position: relative !important; /* 改为相对定位，跟随文档流 */
+        width: 100vw !important; /* 宽度充满视口 */
+        left: 0 !important;
+        top: 0 !important;
+        
+    }
+    /* 3.2 调整导航栏内部容器的布局 */
+    .top-bar-content {
+        flex-direction: column !important; /* 改为垂直排列 */
+        height: auto !important; /* 高度自适应 */
+        padding: 10px !important;
+    }
+    /* 3.3 调整主导航菜单，使其适应小屏幕 */
+    .main-nav {
+        flex-wrap: wrap !important; /* 允许换行 */
+        gap: 10px !important; /* 缩小间距 */
+        justify-content: center !important; /* 居中 */
+        padding: 10px !important;
+        width: 100% !important;
+    }
+    /* 3.4 调整导航项字体和间距 */
+    .nav-item {
+        font-size: 14px !important; /* 适当缩小字体 */
+        white-space: nowrap; /* 保持不换行 */
+        z-index: 1001; /* 确保在容器之上：保证第二行导航栏可以点击的关键 */
+    }
+    /* 3.5 调整右侧按钮组 */
+    .top-actions {
+        margin-top: 10px !important;
+        margin-left: 0 !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    /* ===== 4. 关键修复：为内容区添加顶部间距，防止被导航栏覆盖 ===== */
+    /* 这个页面中，.main-section 是紧跟在导航栏后的主要内容容器 */
+    .main-section {
+        margin-top: 80px !important; /* 重要：这个值可能需要根据导航栏实际高度微调 */
+    }
+
+    /* ===== 5. 原有内容样式调整 ===== */
+    /* 5.1 释放所有使用固定尺寸和绝对定位的容器 */
+    .main-section,
+    .hero,
+    .main-photo,
+    .hero-text,
+    .hero-actions,
+    .frame68,
+    .rectangle1,
+    .background1-2,
+    .background1-1 {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        /* 清除固定像素偏移和变换 */
+        transform: none !important;
+        inset: auto !important;
+        margin-bottom: 20px;
+    }
+    /* 5.2 调整主图区域 */
+    .main-photo {
+        height: auto;
+        min-height: 300px;
+    }
+    .main-background {
+        position: relative !important;
+        width: 100% !important;
+        height: auto !important;
+        max-height: 70vh; /* 防止图片过高 */
+        object-fit: contain; /* 完整显示图片 */
+    }
+    /* 5.3 调整欢迎文字和按钮组的位置，改为上下排列 */
+    .hero-text {
+        padding: 30px 20px;
+        text-align: center;
+        bottom: auto !important;
+    }
+    .hero-title {
+        font-size: 24px;
+        line-height: 1.4;
+        color: #ffffff; /* 改为白色，在深色背景上更清晰 */
+    }
+    .hero-actions {
+        position: relative !important;
+        right: auto !important;
+        bottom: auto !important;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 20px 40px 20px;
+        gap: 15px;
+    }
+    .hero-link {
+        width: 100% !important;
+        max-width: 280px;
+    }
+    /* 5.4 调整复杂的多层背景容器 */
+    .rectangle1,
+    .background1-2,
+    .background1-1 {
+        display: none; /* 在手机上隐藏复杂的多层背景，优先保证内容可读性 */
+    }
+    /* 5.5 为主区域设置一个简单的深色背景，替代隐藏的复杂背景 (注意：此处的 .main-section 已包含上方的 margin-top) */
+    .main-section {
+        background-color: #121212;
+        border-radius: 0;
+    }
+}

@@ -26,7 +26,7 @@ body {
 .page {
   position: relative;
   width: 1920px;
-  height: 1080px;
+  height: auto;
   background-color: #121212; /* 统一深色背景 */
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
@@ -208,4 +208,90 @@ body {
   left: 0;
   top: 0;
   opacity: 0.35;
+}
+/* ==================== 手机端响应式适配 ==================== */
+@media screen and (max-width: 768px) {
+    /* 1. 核心：解除固定画布限制，允许滚动查看全部内容 */
+    .page {
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        min-height: 100vh;
+        overflow: visible !important;
+        box-shadow: none;
+    }
+
+    /* ===== 2. 修复导航栏 ===== */
+    /* 2.1 释放导航栏的绝对定位和固定宽度限制 */
+    .top-bar {
+        position: relative !important; /* 改为相对定位，跟随文档流 */
+        width: 100vw !important; /* 宽度充满视口 */
+        left: 0 !important;
+        top: 0 !important;
+    }
+    /* 2.2 调整导航栏内部容器的布局 */
+    .top-bar-content {
+        flex-direction: column !important; /* 改为垂直排列 */
+        height: auto !important; /* 高度自适应 */
+        padding: 10px !important;
+    }
+    /* 2.3 调整主导航菜单，使其适应小屏幕 */
+    .main-nav {
+        flex-wrap: wrap !important; /* 允许换行 */
+        gap: 10px !important; /* 缩小间距 */
+        justify-content: center !important; /* 居中 */
+        padding: 10px !important;
+        width: 100% !important;
+    }
+    /* 2.4 调整导航项字体和间距 */
+    .nav-item {
+        font-size: 14px !important; /* 适当缩小字体 */
+        white-space: nowrap; /* 保持不换行 */
+    }
+    /* 2.5 调整右侧按钮组 */
+    .top-actions {
+        margin-top: 10px !important;
+        margin-left: 0 !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    /* ===== 3. 关键修复：为内容区添加顶部间距，防止被导航栏覆盖 ===== */
+    /* 请根据页面结构选择其中一个，如果都不对，请找到紧跟在.nav-bar后的容器类名 */
+    .main-section {
+        margin-top: 80px !important; /* 重要：这个值可能需要根据导航栏实际高度微调 */
+    }
+    /* 或 */
+    .all {
+        margin-top: 80px !important;
+    }
+
+    /* ===== 4. 原有内容样式调整 ===== */
+    /* 4.1 调整主体内容的布局和内边距 */
+    .about-content {
+        padding: 30px 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    /* 4.2 调整愿景列表为单列布局 */
+    .vision-list {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    /* 4.3 确保超大背景图片不会撑破布局 */
+    .main-photo {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        transform: none !important;
+    }
+    .main-background {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 200px; /* 设置一个最小高度 */
+        object-fit: cover; /* 让图片自适应填充 */
+    }
 }

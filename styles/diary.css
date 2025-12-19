@@ -509,3 +509,126 @@ body {
 .dark-theme .log-tip {
     color: #aaaaaa; /* 改为中性浅灰色，移除绿色 */
 }
+/* ==================== 手机端响应式适配 ==================== */
+@media screen and (max-width: 768px) {
+    /* 1. 核心：解除固定画布，允许滚动 */
+    .page {
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        min-height: 100vh;
+        overflow: visible !important;
+        box-shadow: none;
+    }
+
+    /* 2. 调整body布局，从上到下排列 */
+    body {
+        display: block !important;
+        align-items: flex-start !important;
+        min-height: 100vh;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    /* ===== 3. 修复导航栏 ===== */
+    /* 3.1 释放导航栏的绝对定位和固定宽度限制 */
+    .top-bar {
+        position: relative !important; /* 改为相对定位，跟随文档流 */
+        width: 100vw !important; /* 宽度充满视口 */
+        left: 0 !important;
+        top: 0 !important;
+    }
+    /* 3.2 调整导航栏内部容器的布局 */
+    .top-bar-content {
+        flex-direction: column !important; /* 改为垂直排列 */
+        height: auto !important; /* 高度自适应 */
+        padding: 10px !important;
+    }
+    /* 3.3 调整主导航菜单，使其适应小屏幕 */
+    .main-nav {
+        flex-wrap: wrap !important; /* 允许换行 */
+        gap: 10px !important; /* 缩小间距 */
+        justify-content: center !important; /* 居中 */
+        padding: 10px !important;
+        width: 100% !important;
+    }
+    /* 3.4 调整导航项字体和间距 */
+    .nav-item {
+        font-size: 14px !important; /* 适当缩小字体 */
+        white-space: nowrap; /* 保持不换行 */
+        z-index: 1001; /* 确保在容器之上 */
+    }
+    /* 3.5 调整右侧按钮组 */
+    .top-actions {
+        margin-top: 10px !important;
+        margin-left: 0 !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    /* ===== 4. 关键修复：为内容区添加顶部间距，防止被导航栏覆盖 ===== */
+    /* 这个页面中，.all 是紧跟在导航栏后的主要内容容器 */
+    .all {
+        margin-top: 80px !important; /* 重要：这个值可能需要根据导航栏实际高度微调 */
+    }
+
+    /* ===== 5. 原有内容样式调整 ===== */
+    /* 5.1 所有使用固定像素定位的容器，全部改为相对定位和流动宽度 */
+    .all,
+    .frame23,
+    .frame30,
+    .frame31,
+    .frame32,
+    .frame34,
+    .frame35,
+    .frame33,
+    .frame36,
+    .frame37 {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        margin-bottom: 20px !important;
+        /* 清除绝对定位相关的偏移 */
+        inset: auto !important;
+        transform: none !important;
+    }
+    /* 5.2 调整主内容区域的背景和内边距 (注意：此处的 .all 已包含上方的 margin-top) */
+    .all {
+        background-color: #212121;
+        padding: 15px;
+        border-radius: 8px;
+    }
+    /* 5.3 调整顶部标题栏 */
+    .diary-header {
+        padding: 15px;
+        text-align: center;
+    }
+    /* 5.4 左侧信息栏和右侧日志区域改为上下堆叠 */
+    .cat-profile,
+    .log-entry {
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+    }
+    /* 5.5 调整数据统计区域的网格布局 */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important; /* 手机改为2列 */
+        gap: 15px;
+    }
+    /* 5.6 调整天气日期组件，避免过宽 */
+    .weather-date-widget {
+        margin: 15px 0 50px 0 !important;
+        padding: 15px !important;
+    }
+    /* 5.7 确保图片自适应 */
+    .cat-avatar-img {
+        width: 150px !important;  /* 固定一个宽度 */
+        height: 150px !important; /* 高度与宽度相等 */
+        border-radius: 50%;       /* 关键：确保是正圆 */
+        object-fit: cover;        /* 保持图片比例并填充 */
+        margin: 0 auto;           /* 水平居中 */
+    }
+}

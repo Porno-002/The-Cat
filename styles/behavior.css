@@ -362,5 +362,102 @@ body {
   width: 85px;
   height: 32px;
 }
+/* ==================== 手机端响应式适配 ==================== */
+@media screen and (max-width: 768px) {
+    /* 1. 核心：解除固定画布，允许滚动 */
+    .page {
+        width: 100% !important;
+        max-width: 100vw !important;
+        height: auto !important;
+        min-height: 100vh;
+        overflow: visible !important;
+        box-shadow: none;
+    }
 
+    /* 2. 调整body的居中布局 */
+    body {
+        display: block !important;
+        align-items: flex-start !important;
+        min-height: 100vh;
+    }
 
+    /* ===== 3. 修复导航栏 ===== */
+    /* 3.1 释放导航栏的绝对定位和固定宽度限制 */
+    .top-bar {
+        position: relative !important; /* 改为相对定位，跟随文档流 */
+        width: 100vw !important; /* 宽度充满视口 */
+        left: 0 !important;
+        top: 0 !important;
+    }
+    /* 3.2 调整导航栏内部容器的布局 */
+    .top-bar-content {
+        flex-direction: column !important; /* 改为垂直排列 */
+        height: auto !important; /* 高度自适应 */
+        padding: 10px !important;
+    }
+    /* 3.3 调整主导航菜单，使其适应小屏幕 */
+    .main-nav {
+        flex-wrap: wrap !important; /* 允许换行 */
+        gap: 10px !important; /* 缩小间距 */
+        justify-content: center !important; /* 居中 */
+        padding: 10px !important;
+        width: 100% !important;
+    }
+    /* 3.4 调整导航项字体和间距 */
+    .nav-item {
+        font-size: 14px !important; /* 适当缩小字体 */
+        white-space: nowrap; /* 保持不换行 */
+    }
+    /* 3.5 调整右侧按钮组 */
+    .top-actions {
+        margin-top: 10px !important;
+        margin-left: 0 !important;
+        justify-content: center !important;
+        width: 100% !important;
+    }
+
+    /* ===== 4. 关键修复：为内容区添加顶部间距，防止被导航栏覆盖 ===== */
+    /* 这个页面中，.main-section 是紧跟在导航栏后的主要内容容器 */
+    .main-section {
+        margin-top: 80px !important; /* 重要：这个值可能需要根据导航栏实际高度微调 */
+    }
+
+    /* ===== 5. 原有内容样式调整 ===== */
+    /* 5.1 所有使用固定宽度/高度的绝对定位容器，全部改为流动布局 */
+    .content-shell,
+    .frame24,
+    .frame25,
+    .frame26,
+    .frame27,
+    .frame28,
+    .frame29 {
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        left: 0 !important;
+        top: 0 !important;
+        inset: auto !important;
+        transform: none !important;
+        margin-bottom: 20px;
+    }
+    /* 5.2 调整各内容块的内边距和布局 */
+    .frame25 {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    .strip {
+        width: 100% !important;
+    }
+    .frame26,
+    .frame27,
+    .frame28 {
+        padding: 20px !important;
+        border-radius: 8px !important;
+    }
+    /* 5.3 移除四个小标签的绝对定位，避免错位 */
+    .tag {
+        display: none !important;
+    }
+}
